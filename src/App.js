@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useEffect, useState } from "react";
+import Navbar from "./Components/Navbar/Navbar";
+import { Routes, Route } from "react-router-dom";
+import GameList from "./Pages/GameList/GameListPage";
+import GameDetail from "./Pages/GameDetail/GameDetailPage";
+import AuthPage from "./Pages/AuthPage/AuthPage";
+import HomePage from "./Pages/HomePage/HomePage";
+import { getUser } from "./Utilities/user-service";
+import AddGamePage from "./Pages/AddGamePage/AddGamePage";
 function App() {
+  const [user, setUser] = useState(getUser());
+  const [api, setApi] = useState({});
+  useEffect(() => {
+    fetch(
+      "https://api.rawg.io/api/platforms?key=d0f09b8f39c441a3a5f42b2948bc4919"
+    )
+      .then((response) => {
+        if (response.ok) {
+          console.log(response.json());
+        }
+        throw response;
+      })
+      .then((data) => setApi(data))
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar user={user} setUser={setUser} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/games" element={<GameList />} />
+        <Route path="/games/new" element={<AddGamePage />} />
+        <Route path="/games/id" element={<GameDetail />} />
+        <Route path="/create/new" element={<AuthPage setUser={setUser} />} />
+      </Routes>
+    </>
   );
 }
 
