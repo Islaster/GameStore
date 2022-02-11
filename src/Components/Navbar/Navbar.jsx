@@ -11,13 +11,17 @@ export default function Navbar(props) {
   return (
     <>
       <NavLink to="/">Home Page</NavLink>{" "}
-      <NavLink to="/games">Game List</NavLink> <AdminNav />
-      <UserNav />
-      &nbsp;&nbsp;
-      <NavLink to="" onClick={handleLogOut}>
-        Log Out
-      </NavLink>
-      <NavLink to="/create/new">SignUp</NavLink>)
+      <NavLink to="/games">Game List</NavLink>
+      {props.user ? (
+        <>
+          {props.user.role.role === "admin" ? <AdminNav /> : <UserNav />}{" "}
+          <NavLink to="" onClick={handleLogOut}>
+            Log Out
+          </NavLink>
+        </>
+      ) : (
+        <NavLink to="/create/new">SignUp</NavLink>
+      )}
     </>
   );
 }

@@ -8,6 +8,8 @@ import AuthPage from "./Pages/AuthPage/AuthPage";
 import HomePage from "./Pages/HomePage/HomePage";
 import { getUser } from "./Utilities/user-service";
 import AddGamePage from "./Pages/AddGamePage/AddGamePage";
+import UserPage from "./Pages/User/UserPage";
+import AdminPage from "./Pages/Admin/AdminPage";
 function App() {
   const [user, setUser] = useState(getUser());
   const [api, setApi] = useState({});
@@ -33,8 +35,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/games" element={<GameList />} />
         <Route path="/games/new" element={<AddGamePage />} />
-        <Route path="/games/id" element={<GameDetail />} />
+        <Route path="/games/:id" element={<GameDetail />} />
         <Route path="/create/new" element={<AuthPage setUser={setUser} />} />
+        <Route path="/user" element={<UserPage user={user} />} />
+        <Route path="/admin" element={<AdminPage user={user} />} />
       </Routes>
     </>
   );

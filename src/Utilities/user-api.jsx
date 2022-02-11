@@ -14,21 +14,30 @@ export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
 
+export function create(games) {
+  return sendRequest("/games/new", "POST", games);
+}
+
+export function getGames() {
+  return sendRequest(`/games`);
+}
+
+export function getGame(id) {
+  return sendRequest(`/games/${id}`);
+}
+
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = "GET", payload = null) {
   // Fetch accepts an options object as the 2nd argument
   // used to include a data payload, set headers, etc.
-  console.log("sendRequest hit");
   const options = { method };
   if (payload) {
-    console.log("payload", payload);
     options.headers = { "Content-Type": "application/json" };
     options.body = JSON.stringify(payload);
   }
   const token = getToken();
   if (token) {
-    console.log("token", token);
     options.headers = options.headers || {};
     options.headers.Authorization = `Bearer ${token}`;
   }
