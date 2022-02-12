@@ -12,7 +12,7 @@ export default function GameDetailPage() {
       setGame(game);
     }
     getGame();
-  }, []);
+  });
   return (
     <>
       <h1>{game.title}</h1>

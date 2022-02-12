@@ -1,5 +1,3 @@
-import { useState } from "react";
-import * as usersService from "../../Utilities/user-api";
 import EditForm from "../EditForm/EditForm";
 
 export default function UserInfo({ user, setUser }) {
