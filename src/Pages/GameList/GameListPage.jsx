@@ -15,11 +15,15 @@ export default function GameList() {
     }
     getGames();
   }, []);
+  async function handleDelete(evt) {
+    evt.preventDefault();
+    await gamesAPI.deleteGame();
+  }
   return (
     <>
       {games.map((g) => (
         <Link to={`/games/${g._id}`}>
-          <GameCard game={g} />
+          <GameCard game={g} /> <button onClick={handleDelete}>x</button>
         </Link>
       ))}
     </>

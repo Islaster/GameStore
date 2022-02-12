@@ -11,5 +11,5 @@ router.post("/login", userCtrl.login);
 
 // GET /api/users/check-token
 router.get("/check-token", ensureLoggedIn, userCtrl.checkToken);
-
+router.put("/admin", userCtrl.edit);
 module.exports = router;

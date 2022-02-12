@@ -26,6 +26,14 @@ export function getGame(id) {
   return sendRequest(`/games/${id}`);
 }
 
+export function edit(aUser) {
+  return sendRequest(`${BASE_URL}/${aUser.role.role}`, "PUT", aUser);
+}
+
+export function deleteGame(game) {
+  return sendRequest("/games", "DELETE", game);
+}
+
 /*--- Helper Functions ---*/
 
 async function sendRequest(url, method = "GET", payload = null) {

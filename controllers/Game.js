@@ -4,6 +4,7 @@ module.exports = {
   create,
   index,
   detail,
+  delete: deleteGame,
 };
 
 async function create(req, res) {
@@ -22,5 +23,10 @@ async function index(req, res) {
 
 async function detail(req, res) {
   const game = await Game.findById(req.params.id);
+  res.json(game);
+}
+
+async function deleteGame(req, res) {
+  const game = await Game.findOneAndDelete({ _id: req.params.id });
   res.json(game);
 }

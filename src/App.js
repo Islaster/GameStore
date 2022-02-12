@@ -37,8 +37,14 @@ function App() {
         <Route path="/games/new" element={<AddGamePage />} />
         <Route path="/games/:id" element={<GameDetail />} />
         <Route path="/create/new" element={<AuthPage setUser={setUser} />} />
-        <Route path="/user" element={<UserPage user={user} />} />
-        <Route path="/admin" element={<AdminPage user={user} />} />
+        <Route
+          path="/guest"
+          element={<UserPage user={user} setUser={setUser} />}
+        />
+        <Route
+          path="/admin"
+          element={<AdminPage user={user} setUser={setUser} />}
+        />
       </Routes>
     </>
   );

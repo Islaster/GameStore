@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getGame } from "../../Utilities/user-api";
 import * as gamesAPI from "../../Utilities/user-api";
 
 export default function GameDetailPage() {

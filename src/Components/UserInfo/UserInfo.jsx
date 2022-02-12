@@ -1,15 +1,8 @@
 import { useState } from "react";
+import * as usersService from "../../Utilities/user-api";
+import EditForm from "../EditForm/EditForm";
 
-export default function UserInfo({ user }) {
-  const [aUser, setAuser] = useState({
-    firstName: "",
-    lastName: "",
-    username: user.username,
-  });
-
-  function handleChange(evt) {
-    setAuser({ ...aUser, [evt.target.name]: evt.target.value });
-  }
+export default function UserInfo({ user, setUser }) {
   return (
     <>
       <h1>Welcome,{user.firstName ? user.firstName : "User"}</h1>
@@ -18,6 +11,14 @@ export default function UserInfo({ user }) {
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
       <p>role: {user.role.role}</p>
+      <div>
+        {user.role.role === "guest" ? (
+          <h4>Order History</h4>
+        ) : (
+          <h4>Permissions</h4>
+        )}
+      </div>
+      <EditForm user={user} setUser={setUser} />
     </>
   );
 }

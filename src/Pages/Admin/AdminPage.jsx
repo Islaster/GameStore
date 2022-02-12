@@ -1,9 +1,9 @@
 import UserInfo from "../../Components/UserInfo/UserInfo";
 
-export default function AdminPage({ user }) {
+export default function AdminPage({ user, setUser }) {
   return (
     <>
-      <UserInfo user={user} />
+      <UserInfo user={user} setUser={setUser} />
     </>
   );
 }
