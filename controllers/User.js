@@ -46,7 +46,7 @@ async function create(req, res) {
     res.status(400).json(e);
   }
 }
-async function edit(req, res, next) {
+async function edit(req, res) {
   User.findOneAndUpdate({ "User._id": req.params.id }).then(function (user) {
     user.firstName = req.body.firstName;
     user.LastName = req.body.LastName;

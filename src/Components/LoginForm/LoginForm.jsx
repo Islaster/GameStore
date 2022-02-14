@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as usersService from "../../Utilities/user-service";
 
 export default function LoginForm({ setUser }) {
@@ -7,7 +8,7 @@ export default function LoginForm({ setUser }) {
     password: "",
   });
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
     setError("");
@@ -22,6 +23,11 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)0
       const user = await usersService.login(credentials);
       setUser(user);
+      if (user.role.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/guest");
+      }
     } catch (err) {
       setError("Log In Failed - Try Again");
     }
@@ -47,7 +53,9 @@ export default function LoginForm({ setUser }) {
             onChange={handleChange}
             required
           />
-          <button type="submit">LOG IN</button>
+          <button type="submit" className="button">
+            LOG IN
+          </button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>

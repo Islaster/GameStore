@@ -79,6 +79,10 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
+            <p className="help-text">
+              Hint: use special chars. and capital chars to increase password
+              strength
+            </p>
             <label>Confirm</label>
             <input
               type="password"
@@ -88,7 +92,7 @@ export default class SignUpForm extends Component {
               required
             />
 
-            <button type="submit" disabled={disable}>
+            <button type="submit" className="button success" disabled={disable}>
               SIGN UP
             </button>
           </form>

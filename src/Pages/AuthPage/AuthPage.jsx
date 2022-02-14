@@ -8,10 +8,19 @@ export default function AuthPage({ setUser }) {
   const navigate = useNavigate();
   return (
     <main>
-      <h1>AuthPage</h1>
-      <button onClick={() => setShowSignUp(!showSignUp)}>
-        {showSignUp ? "Log In" : "Sign Up"}
-      </button>
+      <h1>{showSignUp ? "SignUp" : "Login"}</h1>
+      <div className="switch">
+        <input
+          className="switch-input"
+          id="mySwitch"
+          type="checkbox"
+          onClick={() => setShowSignUp(!showSignUp)}
+        />
+
+        <label className="switch-paddle" for="mySwitch">
+          <span className="show-for-sr">{showSignUp ? "Login" : "SignUp"}</span>
+        </label>
+      </div>
       {showSignUp ? (
         <SignUpForm setUser={setUser} navigate={navigate} />
       ) : (

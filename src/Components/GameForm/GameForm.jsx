@@ -38,7 +38,7 @@ export default function GameForm() {
         onChange={handleChange}
         required
       />
-      <label>genre</label>
+      <label>Genre</label>
       <input
         name="genre"
         type="text"
@@ -54,7 +54,7 @@ export default function GameForm() {
         onChange={handleChange}
         required
       />
-      <label>platform</label>
+      <label>Platform</label>
       <input
         name="platform"
         type="text"
@@ -70,7 +70,9 @@ export default function GameForm() {
         onChange={handleChange}
         required
       />
-      <button type="submit">Add Game</button>
+      <button type="submit" className="button success">
+        Add Game
+      </button>
     </form>
   );
 }

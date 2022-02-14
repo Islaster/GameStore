@@ -9,19 +9,30 @@ export default function Navbar(props) {
     props.setUser(null);
   }
   return (
-    <>
-      <NavLink to="/">Home Page</NavLink>{" "}
-      <NavLink to="/games">Game List</NavLink>
+    <div className="top-bar">
+      <NavLink to="/">Game Store </NavLink>{" "}
+      <NavLink to="/games">Game List</NavLink>{" "}
       {props.user ? (
         <>
-          {props.user.role.role === "admin" ? <AdminNav /> : <UserNav />}{" "}
+          {props.user.role.role === "admin" ? (
+            <>
+              {" "}
+              <AdminNav /> <NavLink to="/admin">Admin</NavLink>
+            </>
+          ) : (
+            <>
+              <UserNav /> <NavLink to="/guest">User</NavLink>
+            </>
+          )}{" "}
           <NavLink to="" onClick={handleLogOut}>
             Log Out
           </NavLink>
         </>
       ) : (
-        <NavLink to="/create/new">SignUp</NavLink>
+        <div className="top-bar-right">
+          <NavLink to="/create/new">SignUp/Login</NavLink>
+        </div>
       )}
-    </>
+    </div>
   );
 }

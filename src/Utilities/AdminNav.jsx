@@ -5,7 +5,6 @@ export default function AdminNav() {
     <>
       <NavLink to="/admin"></NavLink>{" "}
       <NavLink to="/games/new">Add a Game</NavLink>{" "}
-      <NavLink to="/store/info">Edit Store Details</NavLink>
     </>
   );
 }

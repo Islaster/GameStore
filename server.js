@@ -3,8 +3,6 @@ const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
 const app = express();
-const router = require("./routes/api/users");
-
 require("dotenv").config();
 require("./config/database");
 
@@ -15,7 +13,7 @@ app.use(express.json());
 // to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
-app.use("/api/users", router);
+app.use("/api/users", require("./routes/api/users"));
 app.use("/games", require("./routes/api/games"));
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

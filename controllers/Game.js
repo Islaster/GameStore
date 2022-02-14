@@ -27,6 +27,9 @@ async function detail(req, res) {
 }
 
 async function deleteGame(req, res) {
-  const game = await Game.findOneAndDelete({ _id: req.params.id });
+  const game = await Game.findOneAndDelete(req.params.id);
+  console.log(game);
+  game.remove();
+
   res.json(game);
 }
