@@ -63,14 +63,13 @@ export default class SignUpForm extends Component {
               required
             />
             <label>Role</label>
-            <select
+            <input
               name="role"
+              type="text"
               onChange={this.handleChange}
               value={this.state.role}
-            >
-              <option value="admin">Admin</option>
-              <option value="Guest">Guest</option>
-            </select>
+              required
+            />
             <label>Password</label>
             <input
               type="password"
@@ -91,7 +90,6 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-
             <button type="submit" className="button success" disabled={disable}>
               SIGN UP
             </button>
