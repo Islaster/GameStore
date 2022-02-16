@@ -15,11 +15,11 @@ export default function GameDetailPage() {
   });
   return (
     <>
-      <h1>{game.title}</h1>
-      <h4>{game.genre}</h4>
-      <h4>{game.platform}</h4>
-      <h4>{game.ESRB_rating}</h4>
-      <h4>{game.price}</h4>
+      <h1>title: {game.title}</h1>
+      <h4>genre: {game.genre}</h4>
+      <h4>Platform: {game.platform}</h4>
+      <h4>Rating: {game.ESRB_rating}</h4>
+      <h4>Price: {game.price}</h4>
     </>
   );
 }

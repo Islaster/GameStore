@@ -9,14 +9,6 @@ export default function HomePage() {
         alt=""
         className="float-Right"
       />
-      <div className="float-left">
-        <h3>Game Ranch</h3>
-        <span className="text-justify">
-          <h4>Find your Favorite Games</h4>
-          <h4>Check pricing</h4>
-          <h4>Check platform compatability</h4>
-        </span>
-      </div>
     </>
   );
 }

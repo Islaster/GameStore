@@ -9,7 +9,7 @@ export default function GameCard(props) {
     navigate("/games");
   }
   return (
-    <tr>
+    <>
       <td>{props.game.title}</td>
       <td>{props.game.genre}</td>
       <td>{props.game.platform}</td>
@@ -33,6 +33,6 @@ export default function GameCard(props) {
       ) : (
         ""
       )}
-    </tr>
+    </>
   );
 }

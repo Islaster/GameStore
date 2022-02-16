@@ -19,15 +19,20 @@ export default function GameList(props) {
   return (
     <table>
       <thead>
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Platform</th>
+        <tr>
+          <th width="100">Title</th>
+          <th width="100">Genre</th>
+          <th width="100">Platform</th>
+          <th width="50">delete</th>
+        </tr>
       </thead>
       <tbody>
         {games.map((g, idx) => (
-          <Link to={`/games/${g._id}`}>
-            <GameCard game={g} key={idx} user={props.user} />
-          </Link>
+          <tr>
+            <Link to={`/games/${g._id}`}>
+              <GameCard game={g} key={idx} user={props.user} />
+            </Link>
+          </tr>
         ))}
       </tbody>
     </table>
