@@ -15,36 +15,21 @@ export default function GameList(props) {
     }
     getGames();
   }, []);
-  async function handleDelete(evt) {
-    evt.preventDefault();
-    await gamesAPI.deleteGame();
-    navigate("/games");
-  }
 
   return (
-    <>
-      {games.map((g, idx) => (
-        <Link to={`/games/${g._id}`}>
-          <GameCard game={g} key={idx} />
-          {props.user ? (
-            <>
-              {" "}
-              {props.user.role.role ? (
-                <button
-                  className="button alert float-right"
-                  onClick={handleDelete}
-                >
-                  x
-                </button>
-              ) : (
-                ""
-              )}
-            </>
-          ) : (
-            ""
-          )}
-        </Link>
-      ))}
-    </>
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Platform</th>
+      </thead>
+      <tbody>
+        {games.map((g, idx) => (
+          <Link to={`/games/${g._id}`}>
+            <GameCard game={g} key={idx} user={props.user} />
+          </Link>
+        ))}
+      </tbody>
+    </table>
   );
 }

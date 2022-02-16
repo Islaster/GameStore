@@ -10,7 +10,7 @@ export default function Navbar(props) {
   }
   return (
     <div className="top-bar">
-      <NavLink to="/">Game Store </NavLink>{" "}
+      <NavLink to="/">Game Ranch</NavLink>{" "}
       <NavLink to="/games">Game List</NavLink>{" "}
       {props.user ? (
         <>
