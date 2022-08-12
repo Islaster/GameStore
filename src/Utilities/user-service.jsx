@@ -11,14 +11,15 @@ export async function signUp(userData) {
 export async function login(credentials) {
   const token = await usersAPI.login(credentials);
   localStorage.setItem("token", token);
-  console.log("token", token);
   return getUser();
 }
 
 export function getToken() {
   // getItem method will return null if there's no key
   const token = localStorage.getItem("token");
-  if (!token) return null;
+  if (!token) {
+    return null;
+  }
   const payload = JSON.parse(window.atob(token.split(".")[1]));
   if (payload.exp < Date.now() / 1000) {
     // Token has expired

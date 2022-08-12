@@ -5,16 +5,16 @@ const logger = require("morgan");
 const app = express();
 require("dotenv").config();
 require("./config/database");
-
+const Users = require("./routes/api/users");
+const Games = require("./routes/api/games");
 app.use(logger("dev"));
 app.use(express.json());
-
 // Configure both serve-favicon & static middleware
 // to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
-app.use("/api/users", require("./routes/api/users"));
-app.use("/games", require("./routes/api/games"));
+app.use("/api/users", Users);
+app.use("/games", Games);
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
 app.get("/*", function (req, res) {

@@ -8,6 +8,7 @@ export default function Navbar(props) {
     userService.logOut();
     props.setUser(null);
   }
+  console.log(props);
   return (
     <div className="top-bar">
       <NavLink to="/">Game Ranch</NavLink>{" "}

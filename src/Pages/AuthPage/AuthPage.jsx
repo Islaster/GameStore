@@ -17,7 +17,7 @@ export default function AuthPage({ setUser }) {
           onClick={() => setShowSignUp(!showSignUp)}
         />
 
-        <label className="switch-paddle" for="mySwitch">
+        <label className="switch-paddle" htmlFor="mySwitch">
           <span className="show-for-sr">{showSignUp ? "Login" : "SignUp"}</span>
         </label>
       </div>

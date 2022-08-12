@@ -7,6 +7,7 @@ export function signUp(userData) {
 }
 
 export function login(credentials) {
+  console.log("user-api login");
   return sendRequest(`${BASE_URL}/login`, "POST", credentials);
 }
 
@@ -46,6 +47,7 @@ async function sendRequest(url, method = "GET", payload = null) {
   }
   const token = getToken();
   if (token) {
+    console.log("token");
     options.headers = options.headers || {};
     options.headers.Authorization = `Bearer ${token}`;
   }
