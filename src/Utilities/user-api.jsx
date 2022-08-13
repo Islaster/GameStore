@@ -28,7 +28,7 @@ export function getGame(id) {
 }
 
 export function edit(aUser) {
-  return sendRequest(`${BASE_URL}/${aUser.role.role}`, "PUT", aUser);
+  return sendRequest(`${BASE_URL}/${aUser.role}`, "PUT", aUser);
 }
 
 export function deleteGame(game) {

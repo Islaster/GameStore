@@ -6,7 +6,7 @@ export default class EditForm extends Component {
     firstName: this.props.user.firstName,
     LastName: this.props.user.LastName,
     username: this.props.user.username,
-    role: { role: this.props.user.role.role },
+    role: { role: this.props.user.role },
     email: this.props.user.email,
   };
 

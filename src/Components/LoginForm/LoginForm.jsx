@@ -24,7 +24,7 @@ export default function LoginForm({ setUser }) {
       const user = await usersService.login(credentials);
       setUser(user);
 
-      if (user.role.role === "admin") {
+      if (user.role === "admin") {
         navigate("/admin");
       } else {
         navigate("/guest");

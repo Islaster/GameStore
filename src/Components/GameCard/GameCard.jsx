@@ -17,7 +17,7 @@ export default function GameCard(props) {
       {props.user ? (
         <>
           {" "}
-          {props.user.role.role ? (
+          {props.user.role ? (
             <td>
               <button
                 className="button small alert float-right"

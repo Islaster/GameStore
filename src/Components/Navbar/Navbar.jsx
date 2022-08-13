@@ -15,7 +15,7 @@ export default function Navbar(props) {
       <NavLink to="/games">Game List</NavLink>{" "}
       {props.user ? (
         <>
-          {props.user.role.role === "admin" ? (
+          {props.user.role === "admin" ? (
             <>
               {" "}
               <AdminNav /> <NavLink to="/admin">Admin</NavLink>

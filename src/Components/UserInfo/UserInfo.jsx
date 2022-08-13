@@ -6,7 +6,7 @@ export default function UserInfo({ user, setUser }) {
       <span>
         <h1>Welcome,{user.firstName ? user.firstName : "User"}</h1>
         <div className="float-right">
-          {user.role.role === "guest" ? (
+          {user.role === "guest" ? (
             <h4>Order History</h4>
           ) : (
             <>
@@ -20,7 +20,7 @@ export default function UserInfo({ user, setUser }) {
       <p>Last Name: {user.LastName}</p>
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>
-      <p>role: {user.role.role}</p>
+      <p>role: {user.role}</p>
 
       <EditForm user={user} setUser={setUser} />
     </>
