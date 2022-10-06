@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import * as gamesAPI from "../../Utilities/user-api";
 import { useEffect } from "react";
 import GameCard from "../../Components/GameCard/GameCard";
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export default function GameList(props) {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState(null);
   const navigate = useNavigate();
   useEffect(function () {
     async function getGames() {

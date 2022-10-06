@@ -1,4 +1,6 @@
 import { Component } from "react/cjs/react.production.min";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 // Add this import
 import { signUp } from "../../Utilities/user-service";
 export default class SignUpForm extends Component {
@@ -43,60 +45,69 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div>
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Username</label>
-            <input
-              type="text"
-              name="username"
-              value={this.state.username}
-              onChange={this.handleChange}
-              required
-            />
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-            <label>Role</label>
-            <input
-              name="role"
-              type="text"
-              onChange={this.handleChange}
-              value={this.state.role}
-              required
-            />
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              required
-            />
-            <p className="help-text">
-              Hint: use special chars. and capital chars to increase password
-              strength
-            </p>
-            <label>Confirm</label>
-            <input
-              type="password"
-              name="confirm"
-              value={this.state.confirm}
-              onChange={this.handleChange}
-              required
-            />
-            <button type="submit" className="button success" disabled={disable}>
-              SIGN UP
-            </button>
-          </form>
-        </div>
+      <Form autoComplete="off" onSubmit={this.handleSubmit}>
+        <Form.Group>
+          <Form.Label>Username</Form.Label>
+          <Form.Control
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={this.state.username}
+            onChange={this.handleChange}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            placeholder="Email"
+            type="email"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Role</Form.Label>
+          <Form.Control
+            placeholder="Admin or Guest"
+            name="role"
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.role}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+            required
+          />
+          <Form.Text>
+            Hint: use special chars. and capital chars to increase password
+            strength
+          </Form.Text>
+        </Form.Group>
+        <Form.Label>Confirm</Form.Label>
+        <Form.Control
+          placeholder="Confirm Password"
+          type="password"
+          name="confirm"
+          value={this.state.confirm}
+          onChange={this.handleChange}
+          required
+        />
+        <Button type="submit" className="button success" disabled={disable}>
+          SIGN UP
+        </Button>
         <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
+      </Form>
     );
   }
 }

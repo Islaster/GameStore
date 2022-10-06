@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as usersService from "../../Utilities/user-service";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -35,31 +37,31 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container" onSubmit={handleSubmit}>
-        <form autoComplete="off">
-          <label>Email</label>
-          <input
-            type="text"
-            name="username"
-            value={credentials.username}
-            onChange={handleChange}
-            required
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            required
-          />
-          <button type="submit" className="button">
-            LOG IN
-          </button>
-        </form>
-      </div>
+    <Form autoComplete="off" onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
+          type="text"
+          name="username"
+          placeholder="username"
+          value={credentials.username}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          placeholder="password"
+          type="password"
+          name="password"
+          value={credentials.password}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Button type="submit">LOG IN</Button>
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </Form>
   );
 }

@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import Navbar from "./Components/Navbar/Navbar";
+import Navbar from "./Components/Header/Header";
 import { Routes, Route } from "react-router-dom";
 import GameList from "./Pages/GameList/GameListPage";
 import GameDetail from "./Pages/GameDetail/GameDetailPage";

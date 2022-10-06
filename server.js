@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
@@ -13,11 +12,6 @@ app.use(express.json());
 // Configure both serve-favicon & static middleware
 // to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
-app.use(
-  cors({
-    origin: "*",
-  })
-);
 app.use(express.static(path.join(__dirname, "build")));
 app.use("/api/users", Users);
 app.use("/games", Games);
