@@ -8,7 +8,6 @@ export default class SignUpForm extends Component {
     username: "",
     email: "",
     password: "",
-    role: "",
     confirm: "",
     error: "",
   };
@@ -26,11 +25,13 @@ export default class SignUpForm extends Component {
       // will resolve to the user object included in the
       // payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
-      // Baby step!
+      console.log(formData);
       this.props.setUser(user);
+      console.log(this.props.user);
       this.props.navigate("/");
-    } catch {
+    } catch (err) {
       // An error occurred
+      console.log(err);
       this.setState({ error: "Sign Up Failed - Try Again" });
     }
   };
@@ -41,7 +42,6 @@ export default class SignUpForm extends Component {
       error: "",
     });
   };
-
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
@@ -65,17 +65,6 @@ export default class SignUpForm extends Component {
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
-            required
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Role</Form.Label>
-          <Form.Control
-            placeholder="Admin or Guest"
-            name="role"
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.role}
             required
           />
         </Form.Group>

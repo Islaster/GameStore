@@ -4,18 +4,6 @@ const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6; // 6 is a reasonable value
 
-const roleSchema = new Schema({
-  role: {
-    type: String,
-    required: true,
-    enum: ["admin", "guest"],
-  },
-  permissions: {
-    type: Object,
-    default: {},
-  },
-});
-
 const userSchema = new Schema(
   {
     firstName: {
@@ -45,7 +33,6 @@ const userSchema = new Schema(
       default: "",
       minlength: 3,
     },
-    role: roleSchema,
   },
   {
     timestamps: true,

@@ -5,12 +5,15 @@ export async function signUp(userData) {
   // module which will ultimately return a JWT
   const token = await usersAPI.signUp(userData);
   localStorage.setItem("token", token);
+  console.log(token);
+  console.log(localStorage);
   return getUser();
 }
 
 export async function login(credentials) {
   const token = await usersAPI.login(credentials);
   localStorage.setItem("token", token);
+  console.log(credentials);
   return getUser();
 }
 

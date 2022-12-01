@@ -16,6 +16,7 @@ function checkToken(req, res) {
 
 async function login(req, res) {
   try {
+    console.log(user);
     const user = await User.findOne({ email: req.body.username });
     if (!user) throw new Error();
     const match = await bcrypt.compare(req.body.password, user.password);

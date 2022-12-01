@@ -1,6 +1,8 @@
 import { useState } from "react";
 import * as gameService from "../../Utilities/user-api";
 import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default function GameForm() {
   const navigate = useNavigate();
@@ -9,7 +11,7 @@ export default function GameForm() {
     genre: "",
     ESRB_rating: "",
     platform: "",
-    price: "",
+    star_rating: "",
   });
 
   function handleChange(evt) {
@@ -29,50 +31,60 @@ export default function GameForm() {
     }
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Title</label>
-      <input
-        name="title"
-        type="text"
-        value={games.title}
-        onChange={handleChange}
-        required
-      />
-      <label>Genre</label>
-      <input
-        name="genre"
-        type="text"
-        value={games.genre}
-        onChange={handleChange}
-        required
-      />
-      <label>ESRB Rating</label>
-      <input
-        name="ESRB_rating"
-        type="text"
-        value={games.ESRB_rating}
-        onChange={handleChange}
-        required
-      />
-      <label>Platform</label>
-      <input
-        name="platform"
-        type="text"
-        value={games.platform}
-        onChange={handleChange}
-        required
-      />
-      <label>Price</label>
-      <input
-        type="number"
-        name="price"
-        value={games.price}
-        onChange={handleChange}
-        required
-      />
-      <button type="submit" className="button success">
+    <Form onSubmit={handleSubmit}>
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          name="title"
+          type="text"
+          value={games.title}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Genre</Form.Label>
+        <Form.Control
+          name="genre"
+          type="text"
+          value={games.genre}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>ESRB Rating</Form.Label>
+        <Form.Control
+          name="ESRB_rating"
+          type="text"
+          value={games.ESRB_rating}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Platform</Form.Label>
+        <Form.Control
+          name="platform"
+          type="text"
+          value={games.platform}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Price</Form.Label>
+        <Form.Control
+          type="number"
+          name="price"
+          value={games.price}
+          onChange={handleChange}
+          required
+        />
+      </Form.Group>
+      <Button type="submit" variant="success">
         Add Game
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 }

@@ -20,7 +20,7 @@ const gameSchema = new Schema(
       type: String,
       required: true,
     },
-    price: {
+    star_rating: {
       type: Number,
       required: true,
     },
